@@ -1,4 +1,4 @@
-package model;
+package com.ip.model;
 
 import java.util.Set;
 

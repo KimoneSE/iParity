@@ -1,4 +1,4 @@
-package model;
+package com.ip.model;
 
 /**
  * Created by windkl on 2017/4/11.
