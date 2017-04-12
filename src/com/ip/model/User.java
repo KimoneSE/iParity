@@ -1,59 +1,25 @@
 package com.ip.model;
 
-import java.util.List;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created by windkl on 2017/4/11.
  */
+@Entity
+@Table(name="User")
 public class User {
-    double balance;
-    List<Product> buyed;
-    String email;
-    int id;
-    String name;
-    String telephonr;
-    Set<TransferAccount> transfer;
-
-    Set<Product> products;
-
-    public User() {
-    }
-
-    public User(double balance, List<Product> buyed, int id, String email, String name, String telephonr, Set<TransferAccount> transfer) {
-        this.balance = balance;
-        this.buyed = buyed;
-        this.id = id;
-        this.email = email;
-        this.name = name;
-        this.telephonr = telephonr;
-        this.transfer = transfer;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public List<Product> getBuyed() {
-        return buyed;
-    }
-
-    public void setBuyed(List<Product> buyed) {
-        this.buyed = buyed;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+	@Id
+    @GeneratedValue
+    private int id;
+	private String name;
+	private String password;
+	private String telephone;
+	private String email;
+    private int role;
+    
     public int getId() {
         return id;
     }
@@ -70,27 +36,36 @@ public class User {
         this.name = name;
     }
 
-    public String getTelephonr() {
-        return telephonr;
+    public String getPassword() {
+        return password;
     }
 
-    public void setTelephonr(String telephonr) {
-        this.telephonr = telephonr;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public String getTelephone() {
+        return telephone;
     }
 
-    public Set<TransferAccount> getTransfer() {
-        return transfer;
+    public void setTelephone(String telephone) {
+		this.telephone=telephone;
+	}
+    
+    public String getEmail() {
+        return email;
     }
 
-    public void setTransfer(Set<TransferAccount> transfer) {
-        this.transfer = transfer;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public int getRole() {
+        return role;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setRole(int role) {
+        this.role = role;
     }
+    
 }

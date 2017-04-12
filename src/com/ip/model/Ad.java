@@ -2,25 +2,26 @@ package com.ip.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import java.awt.Image;
+
 import javax.persistence.*;
 
 /**
  * Created by windkl on 2017/4/11.
  */
 @Entity
-@Table()
+@Table(name="Ad")
 public class Ad {
     @Id
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")
+    
     private int id;
-
-    @ManyToOne
-    @JoinColumn(name="id")
-    Product product;
-
-    @Column
+    Image bg;
     String content;
+    
+    @JoinColumn(name="lk")
+    Link link;
 
     public int getId() {
         return id;
@@ -30,6 +31,14 @@ public class Ad {
         this.id = id;
     }
 
+    public Image getBg() {
+    	return bg;
+    }
+    
+    public void setBg(Image bg) {
+		this.bg=bg;
+	}
+    
     public String getContent() {
         return content;
     }
@@ -38,18 +47,12 @@ public class Ad {
         this.content = content;
     }
 
-    public Ad() {
-    }
-
-    public Ad(Product product) {
-        this.product = product;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+    public Link getLink() {
+		return link;
+	}
+    
+    public void setLink(Link link) {
+		this.link=link;
+	}
+    
 }
