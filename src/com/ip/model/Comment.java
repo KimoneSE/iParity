@@ -1,6 +1,6 @@
 package com.ip.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,6 +20,7 @@ public class Comment {
     private String pname;
     private String content;
     private Date datetime;
+    private byte isSensitive;//是否为敏感评论，0不是，1是，2未检查
 
     public Comment() {
     }
@@ -72,4 +73,13 @@ public class Comment {
     public void setDatetime(Date datetime) {
         this.datetime = datetime;
     }
+
+	public byte getIsSensitive() {
+		return isSensitive;
+	}
+
+	public void setIsSensitive(byte isSensitive) {
+		this.isSensitive = isSensitive;
+	}
+    
 }
