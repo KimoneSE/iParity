@@ -1,35 +1,40 @@
 package com.ip.model;
 
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 /**
  * Created by windkl on 2017/4/11.
  */
-//@Entity
-//@Table()
+@Entity
+@Table(name="Ad")
 public class Ad {
-//    @Id
-//    @GeneratedValue(generator="increment")
-//    @GenericGenerator(name="increment", strategy = "increment")
+    @Id    
     private int id;
+    private String  imgurl;
+    private String linkurl;
+    private String content;
+    
+    public Ad(){
+    	
+    }
+    
+    public Ad(int id, String imgurl, String content,String linkurl) {
+		super();
+		this.id = id;
+		this.imgurl = imgurl;
+		this.linkurl = linkurl;
+		this.content = content;
+	}
 
-//    @ManyToOne
-//    @JoinColumn(name="id")
-    Product product;
-
-//    @Column
-    String content;
-
-    public int getId() {
+	public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public String getContent() {
         return content;
     }
@@ -38,18 +43,20 @@ public class Ad {
         this.content = content;
     }
 
-    public Ad() {
-    }
+	public String getImgurl() {
+		return imgurl;
+	}
 
-    public Ad(Product product) {
-        this.product = product;
-    }
+	public void setImgurl(String imgurl) {
+		this.imgurl = imgurl;
+	}
 
-    public Product getProduct() {
-        return product;
-    }
+	public String getLinkurl() {
+		return linkurl;
+	}
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+	public void setLinkurl(String linkurl) {
+		this.linkurl = linkurl;
+	}
+    
 }
