@@ -2,34 +2,56 @@ package com.ip.model;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by windkl on 2017/4/11.
  */
+@Entity
+@Table(name="ShoppingWebsite")
 public class ShoppingWebsite {
-    double balance;
-    Set<Seller> sellers;
+	private int id;
+	private String name;
+	private String url;
+//    Set<Seller> sellers;
 
     public ShoppingWebsite() {
     }
 
-    public ShoppingWebsite(double balance, Set<Seller> sellers) {
-        this.balance = balance;
-        this.sellers = sellers;
-    }
+    @Id
+    @Column(name="id")
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public double getBalance() {
-        return balance;
-    }
+	@Column(name="name")
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
+	@Column(name="url")
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public Set<Seller> getSellers() {
-        return sellers;
-    }
-
-    public void setSellers(Set<Seller> sellers) {
-        this.sellers = sellers;
-    }
+	
+//    public Set<Seller> getSellers() {
+//        return sellers;
+//    }
+//
+//    public void setSellers(Set<Seller> sellers) {
+//        this.sellers = sellers;
+//    }
 }

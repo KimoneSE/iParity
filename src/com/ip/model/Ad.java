@@ -7,19 +7,19 @@ import javax.persistence.*;
 /**
  * Created by windkl on 2017/4/11.
  */
-@Entity
-@Table()
+//@Entity
+//@Table()
 public class Ad {
-    @Id
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
+//    @Id
+//    @GeneratedValue(generator="increment")
+//    @GenericGenerator(name="increment", strategy = "increment")
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name="id")
+//    @ManyToOne
+//    @JoinColumn(name="id")
     Product product;
 
-    @Column
+//    @Column
     String content;
 
     public int getId() {

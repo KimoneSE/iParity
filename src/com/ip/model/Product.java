@@ -7,7 +7,7 @@ import java.util.Set;
  * Created by windkl on 2017/4/11.
  */
 public class Product {
-
+	
     Set<Ad> ads;
     List<Comment> comments;
     Set<Link> links;
