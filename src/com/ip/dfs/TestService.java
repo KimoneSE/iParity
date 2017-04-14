@@ -6,16 +6,20 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ip.model.Product;
-import com.ip.service.impl.SearchServiceImpl;
+import com.ip.service.SearchService;
 
-public class Test {
+public class TestService {
 	public static void main(String[] args){
 		ApplicationContext context =
 				new ClassPathXmlApplicationContext("applicationContext.xml");
-		SearchServiceImpl searchService =
-				context.getBean(SearchServiceImpl.class);
-		List<Product> products = searchService.searchByArray("key", "price");
+		SearchService searchService =
+				context.getBean(SearchService.class);
+		List<Product> products = searchService.searchByArray("key java", "price volume");
+		log("=========products========");
 		log(products);
+		for(Product p:products) {
+			log(p.getProduct() +" "+ p.getPrice());
+		}
 	}
 	
 	public static void log(Object o) {

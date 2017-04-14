@@ -18,11 +18,11 @@ public class DeDuplicate {
 		
 		HashMap<String, List<Product>> map = new HashMap<String, List<Product>>(pro.size()/2);
 		for(Product p:pro){
-			List<Product> products = map.get(p.getProduct());
+			List<Product> products = map.get(p.getTypeName());
 			if(products==null) {
 				products = new ArrayList<Product>();
 				products.add(p);
-				map.put(p.getProduct(), products);
+				map.put(p.getTypeName(), products);
 			}else {
 				products.add(p);
 			}
@@ -39,6 +39,29 @@ public class DeDuplicate {
 	}
 	
 	private static Product reduce(List<Product> products) {
-		return null;
+		Product product = new Product();
+		if(products.size()==0)
+			return null;
+		product = products.get(0);
+		
+		double price = 0;
+		int volumn = 0;
+		int count = 0;
+		for(Product p : products) {
+			try{
+				double pPrice = Double.parseDouble(p.getPrice());
+				int pvolumn = p.getVolumn();
+				
+				price+=pPrice;
+				volumn+=pvolumn;
+				count++;
+			}catch(Exception e) {
+			}
+		}
+		if(count!=0) {
+			product.setPrice(price/count+"");
+			product.setVolumn(volumn);
+		}
+		return product;
 	}
 }

@@ -14,4 +14,19 @@ public interface SearchService {
 	 */
 	public List<Product> searchByArray(List<String> keys, List<String> orders) ;
 	
+	/**
+	 * keyString 使用空格分割
+	 * @param keyString
+	 * @param orders volume reliability price
+	 * @return
+	 */
+	public List<Product> searchByArray(String keyString, List<String> orders);
+	
+	/**
+	 * 
+	 * @param keyString 使用空格分割关键字
+	 * @param ordersString使用空格分割排序标记 volume reliability price
+	 * @return
+	 */
+	public List<Product> searchByArray(String keyString, String ordersString);
 }

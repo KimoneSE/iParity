@@ -1,8 +1,12 @@
 package com.ip.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ip.dao.ProductDao;
 import com.ip.logic.comp.MatchComp;
@@ -13,8 +17,12 @@ import com.ip.logic.dedup.DeDuplicate;
 import com.ip.model.Product;
 import com.ip.service.SearchService;
 
+@Service
+@Transactional
 public class SearchServiceImpl implements SearchService {
 
+	
+	
 	@Autowired
 	private ProductDao productDao;
 	
@@ -22,11 +30,13 @@ public class SearchServiceImpl implements SearchService {
 	@Override
 	public List<Product> searchByArray(List<String> keys, List<String> orders) {
 		List<Product> products = productDao.getGeneralInfoByLikeName(keys);
+		System.out.println(products);
 		/**
 		 * 去重
 		 */
 		products = DeDuplicate.deDup(products);
-		
+		System.out.println(products);
+
 		/**
 		 * 按序排序
 		 */
@@ -83,7 +93,20 @@ public class SearchServiceImpl implements SearchService {
 				break;
 			}
 		}
-		return null;
+		return products;
 	}
 
+	public List<Product> searchByArray(String keyString, List<String> orders) {
+		
+		String[] keys = keyString.split(" ");
+		return searchByArray(Arrays.asList(keys), orders);
+	}
+	
+	public List<Product> searchByArray(String keyString, String ordersString) {
+		
+		String[] keys = keyString.split(" ");
+		String[] orders = ordersString.split(" "); 
+		return searchByArray(Arrays.asList(keys), Arrays.asList(orders));
+	}
+	
 }

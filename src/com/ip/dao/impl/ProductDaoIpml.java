@@ -7,10 +7,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.ip.dao.ProductDao;
 import com.ip.model.Product;
 
+@Component
 public class ProductDaoIpml implements ProductDao{
 
 	@Autowired
@@ -51,11 +53,11 @@ public class ProductDaoIpml implements ProductDao{
 	public List<Product> getGeneralInfoByLikeName(List<String> names) {
 		Session session = sessionFactory.getCurrentSession();
 		if (names.size()>0) {
-			StringBuilder hqlLike = new StringBuilder("like %"+names.get(0)+"%");
+			StringBuilder hqlLike = new StringBuilder(" product like '%"+names.get(0)+"%' ");
 			for (int i=1; i<names.size(); i++) {
-				hqlLike.append("OR like %" + names.get(i)+"%");
+				hqlLike.append(" OR product like '%" + names.get(i)+"%' ");
 			}
-			Query<Product> query = session.createQuery("from Product where product  "+hqlLike.toString());
+			Query<Product> query = session.createQuery("from Product where " + hqlLike.toString());
 			return query.list();
 		}
 		return this.getGeneralInfo();
