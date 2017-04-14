@@ -1,0 +1,15 @@
+{
+    "fileServers": [
+        {
+            "ip": "127.0.0.1",
+            "port": 1099,
+            "path": "temp"
+        }
+    ],
+    "facadeServer": {
+        "ip": "127.0.0.1",
+        "port": 1100
+    },
+    "bankupStrategy": "DefaultBankupStrategy",
+    "hashStrategy": "DefaultHashStrategy"
+}
