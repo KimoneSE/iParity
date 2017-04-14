@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,6 +34,10 @@ public class WebsiteController {
 	public Map<String, Object> getWebsite(){
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<ShoppingWebsite> list =  websiteService.getAllWebsite();
+//		ShoppingWebsite shoppingWebsite = new ShoppingWebsite();
+//		shoppingWebsite.setName("taob");
+//		shoppingWebsite.setUrl("hhfweh");
+//		list.add(shoppingWebsite);
 		map.put("list", list);
 		return map;
 	}
@@ -47,9 +50,24 @@ public class WebsiteController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="modifySite",method=RequestMethod.GET)
+	public ModelAndView site(int id){
+		
+		ModelAndView modelAndView = new ModelAndView("admin/modWebsite");
+		ShoppingWebsite website = websiteService.getSiteByID(id);
+		System.out.println(website.getName()+" aaaaa");
+		modelAndView.addObject("website",website);
+		return modelAndView;
+	}
+	
 	@RequestMapping(value="modWebsite",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> modifyHostel(int id,String name,String url){
+	public Map<String, Object> modifyHostel(String idS,String name,String url){
+//		if(idS.trim())
+		int id = Integer.parseInt(idS);
+//		if(id==null){
+//			
+//		}
 		Map<String, Object> map = websiteService.updateWebsite(id, name, url);
 //		System.out.println(map);
 		return map;

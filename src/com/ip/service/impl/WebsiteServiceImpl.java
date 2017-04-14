@@ -74,5 +74,11 @@ public class WebsiteServiceImpl implements WebsiteService{
 	public List<ShoppingWebsite> getAllWebsite() {
 		return websiteDao.getAllWebsites();
 	}
+
+	@Override
+	public ShoppingWebsite getSiteByID(int id) {
+		
+		return websiteDao.getByID(id);
+	}
 	
 }

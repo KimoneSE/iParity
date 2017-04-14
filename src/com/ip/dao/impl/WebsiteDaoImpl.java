@@ -31,11 +31,16 @@ public class WebsiteDaoImpl implements WebsiteDao{
 	}
 
 	@Override
+	@Transactional
 	public ShoppingWebsite delWebsite(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		ShoppingWebsite shoppingWebsite = this.getByID(id);
-		if(shoppingWebsite!=null)
+		if(shoppingWebsite!=null){
+			System.out.println(shoppingWebsite.getName());
 			session.delete(shoppingWebsite);
+			session.flush();
+		}
+			
 		return shoppingWebsite;
 	}
 

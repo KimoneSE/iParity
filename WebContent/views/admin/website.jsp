@@ -3,6 +3,7 @@
 <head>
 	<title>iParity管理网站</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ip.css">
 	
 	<style>
 		.headLabel{
@@ -35,7 +36,7 @@
 	function getWebsite(){
 		$.ajax({
             type: "GET",
-            url: "http://localhost:8080/iParity/admin/website",
+            url: "http://localhost:8080/iParity/admin/getWebsite",
             
             success: function(data) {
                 $("#myContent").empty();
@@ -45,9 +46,11 @@
 					$("#myContent").append(tip);
 				}else{
 					for(var i=0;i<list.length;i++){
-						var panel = '<div class="panel "><div class="row"><div class="col-xm-2 headLabel">'+list[i].name+'</div>'+
-						'<div class="col-xm-6 headLabel">'+list[i].url+'</div><div class="col-xm-2 headLabel"><a href="http://localhost:8080/iParity/admin/delWebsite">删除</a></div>'+
-						'<div class="col-xm-2 headLabel"><a href="">修改</a></div></div></div>';
+						var delUrl = "http://localhost:8080/iParity/admin/delWebsite?id="+list[i].id
+						var modUrl = "http://localhost:8080/iParity/admin/modifySite?id="+list[i].id
+						var panel = '<div class="panel "><div class="row"><div class="col-xs-2 headLabel">'+list[i].name+'</div>'+
+						'<div class="col-xs-6 headLabel">'+list[i].url+'</div><div class="col-xs-2 headLabel"><a href="'+delUrl+'">删除</a></div>'+
+						'<div class="col-xs-2 headLabel"><a href="'+modUrl+'">修改</a></div></div></div>';
 						$("#myContent").append(panel);
 					}
 				}

@@ -9,5 +9,6 @@ public interface WebsiteService {
 	public Map<String, Object> createWebsite(String name,String url);
 	public Map<String, Object> delWebsite(int id);
 	public Map<String, Object> updateWebsite(int id,String name,String url);
+	public ShoppingWebsite getSiteByID(int id);
 	public List<ShoppingWebsite> getAllWebsite();
 }

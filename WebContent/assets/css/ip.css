@@ -1,0 +1,82 @@
+.bd {
+  backgroud-color:#F8F8F8;
+}
+
+#myNav{
+	background-color: transparent;
+	border:transparent;
+}
+
+#hw{
+	color: white;
+	font-size: 25px;
+}
+
+#tip{
+	color:#d73528;
+}
+
+.mybtn {
+  color: #fff;
+  background-color: #99b3fe;
+  border-color: #99b3fe;
+}
+.mybtn:focus,
+.mybtn.focus {
+  color: #fff;
+  background-color: #99a5fe;
+  border-color: #99a5fe;
+}
+.mybtn:hover {
+  color: #fff;
+  background-color: #99a5fe;
+  border-color: #99a5fe;
+}
+
+.n-active{
+	color:#FFF;
+    background-color: #99a5fe;
+}
+
+.navbar-default{
+    border:none;
+    background-color: #99b3fe;
+}
+.navbar-default .navbar-text {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+    font-family: "µÈÏß";
+    font-size: 16px;
+}
+.navbar-default .navbar-brand {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: lighter;
+}
+.navbar-default .mynav > li > a:hover,
+.navbar-default .mynav > li > a:focus {
+	color: #ffffff;
+    background-color: #99a5fe;
+}
+
+.navbar-default .navbar-right > li > a:hover,
+.navbar-default .mynnavbar-rightav > li > a:focus {
+	color: #fff;
+}
+
+#navigation{
+	font-size:20px;
+	color: #ff8000;	
+	margin-bottom:10px;
+}
+
+.form-group #tips{
+	font-size:14px;
+	color: #bd4545;
+}
+
+.panel-top-border {
+ 	border-top: solid 1px #e0e0e0;
+}
