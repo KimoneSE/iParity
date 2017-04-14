@@ -9,8 +9,5 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="darLib/jackson-core-2.2.1.jar"/>
-	<classpathentry kind="lib" path="darLib/mysql-connector-java-5.1.24-bin.jar"/>
-	<classpathentry kind="lib" path="darLib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
