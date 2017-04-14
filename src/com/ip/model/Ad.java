@@ -1,8 +1,5 @@
 package com.ip.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import java.awt.Image;
 
 import javax.persistence.*;
 
@@ -12,32 +9,31 @@ import javax.persistence.*;
 @Entity
 @Table(name="Ad")
 public class Ad {
-    @Id
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
-    
+    @Id    
     private int id;
-    Image bg;
-    String content;
+    private String  imgurl;
+    private String linkurl;
+    private String content;
     
-    @JoinColumn(name="lk")
-    Link link;
+    public Ad(){
+    	
+    }
+    
+    public Ad(int id, String imgurl, String content,String linkurl) {
+		super();
+		this.id = id;
+		this.imgurl = imgurl;
+		this.linkurl = linkurl;
+		this.content = content;
+	}
 
-    public int getId() {
+	public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
-
-    public Image getBg() {
-    	return bg;
-    }
-    
-    public void setBg(Image bg) {
-		this.bg=bg;
-	}
     
     public String getContent() {
         return content;
@@ -47,12 +43,20 @@ public class Ad {
         this.content = content;
     }
 
-    public Link getLink() {
-		return link;
+	public String getImgurl() {
+		return imgurl;
 	}
-    
-    public void setLink(Link link) {
-		this.link=link;
+
+	public void setImgurl(String imgurl) {
+		this.imgurl = imgurl;
+	}
+
+	public String getLinkurl() {
+		return linkurl;
+	}
+
+	public void setLinkurl(String linkurl) {
+		this.linkurl = linkurl;
 	}
     
 }
