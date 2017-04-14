@@ -7,14 +7,12 @@ import java.util.Set;
  */
 public class ShoppingWebsite {
     double balance;
-    Set<Seller> sellers;
 
     public ShoppingWebsite() {
     }
 
-    public ShoppingWebsite(double balance, Set<Seller> sellers) {
+    public ShoppingWebsite(double balance) {
         this.balance = balance;
-        this.sellers = sellers;
     }
 
     public double getBalance() {
@@ -23,13 +21,5 @@ public class ShoppingWebsite {
 
     public void setBalance(double balance) {
         this.balance = balance;
-    }
-
-    public Set<Seller> getSellers() {
-        return sellers;
-    }
-
-    public void setSellers(Set<Seller> sellers) {
-        this.sellers = sellers;
     }
 }

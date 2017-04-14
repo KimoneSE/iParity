@@ -3,55 +3,106 @@ package com.ip.model;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by windkl on 2017/4/11.
  */
+@Entity
+@Table(name="product")
+
 public class Product {
 
-    Set<Ad> ads;
-    List<Comment> comments;
-    Set<Link> links;
+	@Id
+	private int id;
+    private String name;
+    private String link;
+    private String seller;
+    private double volume;
+    private double reliability;
+    private String description;
     double price;
 
     public Product() {
     }
 
-    public Product(Set<Ad> ads, List<Comment> comments, Set<Link> links, double price) {
-        this.ads = ads;
-        this.comments = comments;
-        this.links = links;
-        this.price = price;
-    }
+	public Product(int id, String name, String link, String seller, double volume, double reliability,
+			String description, double price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.link = link;
+		this.seller = seller;
+		this.volume = volume;
+		this.reliability = reliability;
+		this.description = description;
+		this.price = price;
+	}
 
-    public Set<Ad> getAds() {
-        return ads;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setAds(Set<Ad> ads) {
-        this.ads = ads;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public List<Comment> getComments() {
-        return comments;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public Set<Link> getLinks() {
-        return links;
-    }
+	public String getLink() {
+		return link;
+	}
 
-    public void setLinks(Set<Link> links) {
-        this.links = links;
-    }
+	public void setLink(String link) {
+		this.link = link;
+	}
 
-    public double getPrice() {
-        return price;
-    }
+	public String getSeller() {
+		return seller;
+	}
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+	public void setSeller(String seller) {
+		this.seller = seller;
+	}
+
+	public double getVolume() {
+		return volume;
+	}
+
+	public void setVolume(double volume) {
+		this.volume = volume;
+	}
+
+	public double getReliability() {
+		return reliability;
+	}
+
+	public void setReliability(double reliability) {
+		this.reliability = reliability;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 }

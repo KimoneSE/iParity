@@ -19,7 +19,7 @@
 		<property name="url"
 			value="jdbc:mysql://192.241.223.236:8066/archetecture?autoReconnect=true" />
 		<property name="username" value="root" />
-		<property name="password" value="123456" />
+		<property name="password" value="password" />
 	</bean>
 
 	<bean id="sessionFactory"

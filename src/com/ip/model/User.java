@@ -3,9 +3,15 @@ package com.ip.model;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * Created by windkl on 2017/4/11.
  */
+@Entity
+@Table(name="user")
+
 public class User {
     double balance;
     List<Product> buyed;
