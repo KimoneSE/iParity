@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ip.logic.comp.ProductComp;
 import com.ip.model.Product;
 
 public class DeDuplicate {
@@ -49,7 +50,7 @@ public class DeDuplicate {
 		int count = 0;
 		for(Product p : products) {
 			try{
-				double pPrice = Double.parseDouble(p.getPrice());
+				double pPrice = Double.parseDouble(ProductComp.extractNumric( p.getPrice()));
 				int pvolumn = p.getVolumn();
 				
 				price+=pPrice;

@@ -14,6 +14,29 @@ public abstract class ProductComp implements Comparator<Product> {
 		this.asc = asc;
 	}
 	
+	
+	
+	public static String extractNumric(String str) {
+		int start = 0;
+		int endindex = 0;
+		for(start=0; start< str.length(); start++) {
+			char temp = str.charAt(start);
+			if(temp=='.'||(temp<='9'&&temp>='0')){
+				break;
+			}
+		}
+		
+		for(endindex=start+1; endindex<str.length(); endindex++) {
+			char temp = str.charAt(endindex);
+			if(temp=='.'||(temp<='9'&&temp>='0')){
+				continue;
+			}else{
+				break;
+			}
+		}
+		return str.substring(start, endindex);
+	}
+	
 	protected abstract double getCompValue(Product p);
 	
 	@Override
