@@ -14,7 +14,7 @@ public class PriceComp extends ProductComp{
 
 	@Override
 	protected double getCompValue(Product p) {
-		return Double.parseDouble(p.getPrice()) ;
+		return Double.parseDouble(extractNumric( p.getPrice()) ) ;
 	}
 	
 	
