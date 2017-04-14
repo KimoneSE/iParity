@@ -91,4 +91,31 @@ public class CommentDaoImpl implements CommentDao {
 		return list;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List<Comment> getSen() {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Comment where isSensitive=1");
+		
+		List<Comment> list = query.list();
+		return list;
+	}
+
+	@Override
+	public void update(Comment comment) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(comment);
+		session.flush();
+	}
+
+	@SuppressWarnings({ "rawtypes", "deprecation" })
+	@Override
+	public Comment findByID(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Comment where where id=:id");
+		query.setInteger("id", id);
+		Comment comment = (Comment)query.list().get(0);
+		return comment;
+	}
+
 }

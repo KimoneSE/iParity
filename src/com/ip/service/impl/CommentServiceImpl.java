@@ -40,4 +40,25 @@ public class CommentServiceImpl implements CommentService {
 
 	}
 
+	@Override
+	public List<Comment> getSen() {
+		
+		return commentDao.getSen();
+	}
+
+	@Override
+	public Map<String, Object> modify(int id, String content) {
+		Map<String, Object> map = new HashMap<>();
+		Comment comment = commentDao.findByID(id);
+		comment.setContent(content);
+		commentDao.update(comment);
+		return map;
+	}
+
+	@Override
+	public Comment getByID(int id) {
+		
+		return commentDao.findByID(id);
+	}
+
 }

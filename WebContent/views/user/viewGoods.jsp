@@ -27,7 +27,32 @@
 					
 				</div>
 				<div class="tab-pane fade" id="comment">
-					
+					<div class="col-md-12 ">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                            <h3 align="left">发布评论</h3>
+                                <form action="http://localhost:8080/iParity/addcomment" method="post">
+                                <div>
+                                    <textarea name="content" id="conBox" class="comments" rows="6" ></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-8 col-sm-4">
+                                        <button type="submit" class="btn btn-default button1">发布</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div class="panel panel-default">
+                            <div class="panel-body" id="allcomment">
+                            <h3 align="left">评论</h3>
+
+
+                            </div>
+                        </div>
+                    </div>
 					
 				</div>
 			</div>
@@ -46,6 +71,7 @@
 <script>
 	$(document).ready(function() {
 		getWebsite();
+		getComment();
 	});
 
 	function priceSort(){
@@ -159,6 +185,31 @@
                 showTip("连接错误！");
             }
         });
+	}
+	
+	function getComment(){
+		$.ajax({
+			type:"GET",
+			url:"http://localhost:8080/iParity/comment",
+			
+			success:function(data){
+				
+				$("#allcomment").empty();
+				var list = data.comments;
+				if(list==null||list.length==0){
+					var tip = '<div>目前没有评论</div>'
+					$("#comment").append(tip);
+				}else{
+					for(var i=0;i<list.length;i++){
+						
+						var panel = '<div class="panel"><div class="row"><div class="col-xs-3">'+
+							'<h4>'+list[i].uid+'</h4><p>'+list[i].datetime+'</p></div>'+
+							'<div class="col-xs-8">'+list[i].content+'</div></div></div>';
+						$("#allcomment").append(panel);
+					}
+				}
+			}
+		});
 	}
 </script>
 </html>
