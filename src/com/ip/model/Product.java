@@ -13,7 +13,7 @@ public class Product {
 	private String product;
 	// 分类名称
 	private String typeName;
-	// 是一个商店还是一个概括
+	// 是一个商店还是一个概括(概括是null)
 	private String parent;
 	// 库存(抓不到)
 	private int storage;
@@ -23,13 +23,13 @@ public class Product {
 	private String storeLink;
 	// 价格
 	private String price;
-	// 图片链接(只有概括有)
+	// 图片链接(都有)
 	private String imageLink;
 	// 成交量(抓不到)
 	private int volumn;
 	// 描述(只有概括有)
 	private String description;
-	// 客户评分
+	// 客户评分(只有概括有)
 	private String value;
 
 	public String getId() {
