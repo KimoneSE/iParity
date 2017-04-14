@@ -5,8 +5,6 @@ import java.util.Iterator;
 import com.ip.model.Product;
 
 public interface ProductDao {
-
-	public void saveProduct(Product product);
 	
 	/**
 	 * 

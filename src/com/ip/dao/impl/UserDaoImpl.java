@@ -51,7 +51,8 @@ public class UserDaoImpl implements UserDao{
 	public User findByName(String username) {
 		Session session = sessionFactory.getCurrentSession();
 		
-        Query query = session.createQuery("from User where name=username");
+        Query query = session.createQuery("from User where name=:username");
+        query.setString("username", username);
         if (query.list() == null || query.list().size() == 0) {
             return null;
         } else {
@@ -63,6 +64,7 @@ public class UserDaoImpl implements UserDao{
 		Session session = sessionFactory.getCurrentSession();
 		
         Query query = session.createQuery("delete User where name=:username");
+        query.setString("username", username);
         query.executeUpdate();		
 	}
 	
