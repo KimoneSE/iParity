@@ -23,21 +23,8 @@
             </ul>
             <div id="myTabContent" class="tab-content">
 				<div class="tab-pane fade in active" id="plist">
-					<div class="panel">
-						<div class="row">
-							<div class="col-xs-3">
-								<!-- 
-								<img style="width:100px;height: 100px" src="http://ec4.images-amazon.com:80/images/I/31L29DF5-4L.SL500_AA300_.jpg"/>
-								 -->
-							</div>
-							<!-- <div class="col-xs-8"> -->
-								<div class="col-xs-3">商品名</div>
-								<div class="col-xs-2"><button class="btn" onclick="priceSort()">价格</button></div>
-								<div class="col-xs-2"><button class="btn" onclick="reSort()">商家信用</button></div>
-								
-							<!-- </div> -->
-						</div>
-					</div>
+					
+					
 				</div>
 				<div class="tab-pane fade" id="comment">
 					
@@ -65,13 +52,17 @@
 		
 		$.ajax({
             type: "GET",
-            url: "http://localhost:8080/iParity/product/priceSort",
+            url: "http://localhost:8080/iParity/product/priceSort?name="+'${product.product}',
             
             success: function(data) {
                 $("#plist").empty();
+                var listPanel = '<div class="panel"><div class="row"><div class="col-xs-3">'+
+                '</div><div class="col-xs-3">商品名</div><div class="col-xs-2"><button class="btn" onclick="priceSort()">价格</button></div>'+
+                '<div class="col-xs-2"><button class="btn" onclick="reSort()">商家信用</button></div></div></div>'
+                $("#plist").append(listPanel);
                 var list=data.list;
 				if(list==null||list.length==0){
-					var tip = '<div>没有其他商家信息</div>'
+					var tip = '<div>未找到相关信息</div>'
 					$("#plist").append(tip);
 				}else{
 					for(var i=0;i<list.length;i++){
@@ -99,13 +90,17 @@
 		
 		$.ajax({
             type: "GET",
-            url: "http://localhost:8080/iParity/product/reSort",
+            url: "http://localhost:8080/iParity/product/reSort?name="+'${product.product}',
             
             success: function(data) {
                 $("#plist").empty();
+                var listPanel = '<div class="panel"><div class="row"><div class="col-xs-3">'+
+                '</div><div class="col-xs-3">商品名</div><div class="col-xs-2"><button class="btn" onclick="priceSort()">价格</button></div>'+
+                '<div class="col-xs-2"><button class="btn" onclick="reSort()">商家信用</button></div></div></div>'
+                $("#plist").append(listPanel);
                 var list=data.list;
 				if(list==null||list.length==0){
-					var tip = '<div>没有其他商家信息</div>'
+					var tip = '<div>未找到相关信息</div>'
 					$("#plist").append(tip);
 				}else{
 					for(var i=0;i<list.length;i++){
@@ -129,16 +124,21 @@
 	}
 	
 	function getWebsite(){
+
 		
 		$.ajax({
             type: "GET",
-            url: "http://localhost:8080/iParity/product/goodsDetail",
+            url: "http://localhost:8080/iParity/product/goodsDetail?name="+'${product.product}',
             
             success: function(data) {
                 $("#plist").empty();
+                var listPanel = '<div class="panel"><div class="row"><div class="col-xs-3">'+
+                '</div><div class="col-xs-3">商品名</div><div class="col-xs-2"><button class="btn" onclick="priceSort()">价格</button></div>'+
+                '<div class="col-xs-2"><button class="btn" onclick="reSort()">商家信用</button></div></div></div>'
+                $("#plist").append(listPanel);
                 var list=data.list;
 				if(list==null||list.length==0){
-					var tip = '<div>没有其他商家信息</div>'
+					var tip = '<div>未找到相关信息</div>'
 					$("#plist").append(tip);
 				}else{
 					for(var i=0;i<list.length;i++){

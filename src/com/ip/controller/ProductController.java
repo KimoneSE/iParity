@@ -27,20 +27,24 @@ public class ProductController {
 	private SearchService searchService;
 	
 	@RequestMapping(value="detail",method=RequestMethod.GET)
-	public ModelAndView productDetail(HttpSession session){
+	public ModelAndView productDetail(HttpSession session,String name){
+		System.out.println(name);
 		User user = (User)session.getAttribute("user");
 		ModelAndView modelAndView = new ModelAndView("user/viewGoods");
 		modelAndView.addObject("member",user);
+		Product product = new Product();
+		product.setProduct(name);
+		modelAndView.addObject("product",product);
 		return modelAndView;
 	}
 	
 	
 	@RequestMapping(value="goodsDetail",method=RequestMethod.GET)
 	@ResponseBody
-	public Map<String, Object> getDetail(String name,String sort){
+	public Map<String, Object> getDetail(String name){
 		
 		Map<String, Object> map = new HashMap<String,Object>();
-		List<Product> list = searchService.searchByArray(name, sort);
+		List<Product> list = searchService.searchByArray(name, "reliability:desc");
 		map.put("list", list);
 		return map;
 	}
