@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ip.logic.dedup.DeDuplicate;
 import com.ip.model.Product;
 import com.ip.service.ProductService;
 
@@ -16,8 +17,7 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Override
 	public List<Product> getAllProducts() {
-		
-		return productService.getAllProducts();
+		return DeDuplicate.deDup(productService.getAllProducts());
 	}
 
 }

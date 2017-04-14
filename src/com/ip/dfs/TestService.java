@@ -14,7 +14,7 @@ public class TestService {
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 		SearchService searchService =
 				context.getBean(SearchService.class);
-		List<Product> products = searchService.searchByArray("java", "price:desc");
+		List<Product> products = searchService.searchByArray("诺基亚", "price");
 		log("=========products========");
 		log(products);
 		for(Product p:products) {
