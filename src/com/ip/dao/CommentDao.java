@@ -16,4 +16,10 @@ public interface CommentDao {
 	public void deleteComment(int id);
 	
 	public List<Comment> getAll(String pname);
+	
+	public List<Comment> getSen();
+	
+	public void update(Comment comment);
+	
+	public Comment findByID(int id);
 }

@@ -12,4 +12,10 @@ public interface CommentService {
 	public List<Comment> getAll(String pname);
 	
 	public void delete(int id);
+	
+	public List<Comment> getSen();
+	
+	public Map<String, Object> modify(int id, String content);
+	
+	public Comment getByID(int id);
 }
